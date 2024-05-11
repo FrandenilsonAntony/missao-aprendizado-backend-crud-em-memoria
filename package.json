@@ -1,0 +1,15 @@
+{
+  "name": "missao-aprendizado-backend-crud-em-memoria",
+  "version": "1.0.0",
+  "description": "Projeto Aprendizado criando CRUD em Memória da Profissão Dev BackEnd com Nodejs, Expressjs, Javascripts e GitHub CodeSpace.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
