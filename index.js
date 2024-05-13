@@ -7,8 +7,21 @@ app.get('/', function (req, res) {
 
 const lista = ['Java', 'Kotlin', 'Android']
 
-//EndPoint Read All [GET] /personagem
+//Endpoint Read All [GET] /personagem
 app.get('/personagem', function(req, res) {
   res.send(lista)
 })
+
+//Endpoint Read by ID [GET] /personagem/:id
+app.get('/personagem/:id', function(req, res) {
+  //Acessamos o parâmetro de rota pelo ID
+  const id = req.params.id
+
+  //Acessa o item na lista usando o ID -1
+  const item = lista[id -1]
+  
+  //Enviamos o valor do item como resposta
+  res.send(item)
+})
+
 app.listen(3000)
