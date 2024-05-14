@@ -31,16 +31,24 @@ app.use(express.json())
 app.post('/personagem', function(req, res){
   //Acessamos o Body da requisição
   const body = req.body
-  console.log(body)
-
-  //Acessamos a propriedade 'Nome' do Body
+  
+  //Acessamos a propriedade 'nome' do Body
   const novoItem = body.nome
 
+  // Checar se o ´nome´ está presente no body
+  if (!novoItem) {
+    return res.send('Corpo da requesição deve conter a propriedade ´nome´.')
+  }
+
+  //Checa se o novoItem está na lista ou não.
+  if (lista.includes(novoItem)) {
+    return res.send('Item duplicado! "Item ja existe na lista"')
+  }
   //Adicionamos na lista
   lista.push(novoItem)
 
   //Exibimos uma mensagem de sucesso
-  res.send('Item adicionado com sucesso' + novoItem)
+  res.send('Item adicionado com sucesso: ' + novoItem)
 })
 
 //Endpoint Update [PUT] /personagem/:id
@@ -53,6 +61,17 @@ app.put('/personagem/:id', function(req, res){
 
   //Acessamos a propridade 'Nome' no body
   const novoItem = body.nome
+
+  
+  // Checar se o ´nome´ está presente no body
+  if (!novoItem) {
+    return res.send('Corpo da requesição deve conter a propriedade ´nome´.')
+  }
+
+  //Checa se o novoItem está na lista ou não.
+  if (lista.includes(novoItem)) {
+    return res.send('Item duplicado! "Item ja existe na lista"')
+  }
 
   //Reformulamos na lista o novo Item pelo ID -1 
   lista[id - 1] = novoItem
